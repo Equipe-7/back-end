@@ -46,9 +46,3 @@ model Cart {
   createdAt DateTime  @default(now())
   products  Product[]
 }
-
-<<<<<<< Updated upstream
-// continua 2222
-=======
-// continua modificação sem push!!!
->>>>>>> Stashed changes
