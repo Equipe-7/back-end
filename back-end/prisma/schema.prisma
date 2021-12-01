@@ -46,5 +46,3 @@ model Cart {
   createdAt DateTime  @default(now())
   products  Product[]
 }
-
-// continua 2222
