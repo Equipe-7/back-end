@@ -47,4 +47,8 @@ model Cart {
   products  Product[]
 }
 
+<<<<<<< Updated upstream
 // continua 2222
+=======
+// continua modificação sem push!!!
+>>>>>>> Stashed changes
