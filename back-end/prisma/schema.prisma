@@ -11,6 +11,7 @@ model User {
   username  String   @id @default(uuid())
   password  String
   email     String
+  role      String   @default("USER")
   updatedAt DateTime @updatedAt
   createdAt DateTime @default(now())
 }
@@ -18,12 +19,16 @@ model User {
 model Category {
   category_id   String    @id @default(uuid())
   category_name String
+  updatedAt     DateTime  @updatedAt
+  createdAt     DateTime  @default(now())
   products      Product[]
 }
 
 model Product {
   product_id   String     @id @default(uuid())
   product_name String
+  updatedAt    DateTime   @updatedAt
+  createdAt    DateTime   @default(now())
   categories   Category[]
   companies    Company[]
   carts        Cart[]
