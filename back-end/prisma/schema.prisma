@@ -8,12 +8,14 @@ datasource db {
 }
 
 model User {
-    username  String   @id @default(uuid())
+
+    username  String   @id
     password  String
     email     String
     role      String   @default("USER")
     updatedAt DateTime @updatedAt
     createdAt DateTime @default(now())
+    carts     Cart[]
 }
 
 model Category {
@@ -46,8 +48,11 @@ model Company {
 }
 
 model Cart {
+  
     cart_id   String    @id @default(uuid())
     updatedAt DateTime  @updatedAt
     createdAt DateTime  @default(now())
     products  Product[]
+    users     User[]
+
 }
