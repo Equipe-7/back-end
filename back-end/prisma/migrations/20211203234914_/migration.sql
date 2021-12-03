@@ -37,6 +37,7 @@ CREATE TABLE "Company" (
     "cnpj" TEXT NOT NULL,
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "hotel" TEXT NOT NULL,
 
     CONSTRAINT "Company_pkey" PRIMARY KEY ("company_id")
 );
@@ -48,6 +49,29 @@ CREATE TABLE "Cart" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Cart_pkey" PRIMARY KEY ("cart_id")
+);
+
+-- CreateTable
+CREATE TABLE "Services" (
+    "service_id" TEXT NOT NULL,
+    "service_name" TEXT NOT NULL,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "Services_pkey" PRIMARY KEY ("service_id")
+);
+
+-- CreateTable
+CREATE TABLE "Vets" (
+    "vet_id" TEXT NOT NULL,
+    "vet_name" TEXT NOT NULL,
+    "vet_email" TEXT NOT NULL,
+    "vet_tel" TEXT NOT NULL,
+    "crmv" TEXT NOT NULL,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "Vets_pkey" PRIMARY KEY ("vet_id")
 );
 
 -- CreateTable
@@ -73,6 +97,9 @@ CREATE TABLE "_CartToProduct" (
     "A" TEXT NOT NULL,
     "B" TEXT NOT NULL
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Vets_vet_email_key" ON "Vets"("vet_email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "_CartToUser_AB_unique" ON "_CartToUser"("A", "B");

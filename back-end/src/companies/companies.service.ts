@@ -5,16 +5,20 @@ import {
 import { CreateCompanyDto } from './dto/create-company.dto';
 import { UpdateCompanyDto } from './dto/update-company.dto';
 import { PrismaService } from 'src/prisma.service';
-import { Prisma, User } from '@prisma/client';
+import { Company, Prisma, PrismaClient, User } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
+
 
 @Injectable()
 export class CompaniesService {
 
-  constructor(private readonly prisma: PrismaService){}
+  constructor(private db: PrismaClient){}
 
-  create(createCompanyDto: CreateCompanyDto) {
-    return 'This action adds a new company';
+  async create(data: CreateCompanyDto): Promise<Company> {
+    
+    const companyExists = await this.db.company.findUnique({
+      where: { }  
+    })
   }
 
   findAll() {
@@ -30,11 +34,8 @@ export class CompaniesService {
   }
 
   async remove(company_name: string) {
-    const companyName = await this.prisma.company.delete({
-      where: { company_name }
-    })
-
-
-    return { message: 'Companhia deletada com sucesso'};
-  }
+    return null
+    }
+  
 }
+
