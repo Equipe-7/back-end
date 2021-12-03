@@ -10,6 +10,7 @@ import { UserRole } from './enum/role.enum';
 import * as bcrypt from 'bcrypt';
 @Injectable()
 export class UsersService {
+  
   constructor(private readonly prisma: PrismaService) {}
 
   async create(data: Prisma.UserCreateInput, role: UserRole) {
