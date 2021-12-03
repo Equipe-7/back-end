@@ -44,15 +44,32 @@ model Company {
     updatedAt    DateTime  @updatedAt
     createdAt    DateTime  @default(now())
     products     Product[]
-
+    hotel String
 }
 
 model Cart {
-  
+
     cart_id   String    @id @default(uuid())
     updatedAt DateTime  @updatedAt
     createdAt DateTime  @default(now())
     products  Product[]
     users     User[]
 
+}
+
+model Services {
+    service_id String @id @default(uuid())
+    service_name String
+    updatedAt DateTime  @updatedAt
+    createdAt DateTime  @default(now())
+
+}
+
+model Vets {
+    vet_id String @id @default(uuid())
+    vet_name String
+    updatedAt DateTime  @updatedAt
+    createdAt DateTime  @default(now())
+    crmv String
+    vet_tel String
 }
