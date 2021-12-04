@@ -17,7 +17,7 @@ export class CompaniesService {
   async create(data: CreateCompanyDto): Promise<Company> {
     
     const companyExists = await this.db.company.findUnique({
-      where: { }  
+      where: { company_name: data.comapany_name}  
     })
   }
 

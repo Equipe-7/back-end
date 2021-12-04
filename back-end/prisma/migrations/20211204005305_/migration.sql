@@ -75,6 +75,19 @@ CREATE TABLE "Vets" (
 );
 
 -- CreateTable
+CREATE TABLE "Adoption" (
+    "id" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "picture" TEXT NOT NULL,
+    "species" TEXT NOT NULL,
+    "size" TEXT NOT NULL,
+    "tel" TEXT NOT NULL,
+
+    CONSTRAINT "Adoption_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
 CREATE TABLE "_CartToUser" (
     "A" TEXT NOT NULL,
     "B" TEXT NOT NULL
