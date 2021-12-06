@@ -31,10 +31,12 @@ model Product {
   product_name String
   updatedAt    DateTime   @updatedAt
   createdAt    DateTime   @default(now())
+  price        Float
+  description  String
+  urlImage     String
   categories   Category[]
   companies    Company[]
   carts        Cart[]
-
 }
 
 model Company {
@@ -43,8 +45,8 @@ model Company {
   cnpj         String
   updatedAt    DateTime  @updatedAt
   createdAt    DateTime  @default(now())
-  products     Product[]
   hotel        String
+  products     Product[]
 }
 
 model Cart {
