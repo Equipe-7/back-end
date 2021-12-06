@@ -3,7 +3,6 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from 'src/prisma.service';
 import { Prisma, User } from '@prisma/client';
@@ -11,6 +10,7 @@ import { UserRole } from './enum/role.enum';
 import * as bcrypt from 'bcrypt';
 @Injectable()
 export class UsersService {
+  
   constructor(private readonly prisma: PrismaService) {}
 
   async create(data: Prisma.UserCreateInput, role: UserRole) {
