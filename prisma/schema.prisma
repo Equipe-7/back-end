@@ -16,6 +16,7 @@ model User {
   updatedAt DateTime @updatedAt
   createdAt DateTime @default(now())
   carts     Cart[]
+  vets      Vets[]
 }
 
 model Category {
@@ -70,19 +71,9 @@ model Services {
 model Vets {
   vet_id    String   @id @default(uuid())
   vet_name  String
-  vet_email String   @unique
   vet_tel   String
   crmv      String
   updatedAt DateTime @updatedAt
   createdAt DateTime @default(now())
-}
-
-model Adoption {
-  id      String @id @default(uuid())
-  name    String
-  email   String
-  picture String
-  species String
-  size    String
-  tel     String
+  user      User[]
 }
