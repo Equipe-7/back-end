@@ -19,16 +19,16 @@ export class VetsController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.vetsService.findOne(+id);
+    return this.vetsService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateVetDto: UpdateVetDto) {
-    return this.vetsService.update(+id, updateVetDto);
+    return this.vetsService.update(id, updateVetDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.vetsService.remove(+id);
+    return this.vetsService.remove(id);
   }
 }
