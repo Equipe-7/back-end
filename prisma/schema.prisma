@@ -80,7 +80,6 @@ model Services {
 model Vets {
   vet_id    String   @id @default(uuid())
   vet_name  String
-  vet_email String   @unique
   vet_tel   String
   crmv      String
   updatedAt DateTime @updatedAt
