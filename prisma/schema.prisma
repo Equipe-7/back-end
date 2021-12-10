@@ -16,7 +16,14 @@ model User {
   updatedAt DateTime @updatedAt
   createdAt DateTime @default(now())
   carts     Cart[]
-  vets      Vets[]
+  vets      Vets?
+  donor     Donor?
+}
+
+model Species {
+  species_id   String    @id @default(uuid())
+  species_name String
+  Product      Product[]
 }
 
 model Category {
@@ -36,8 +43,10 @@ model Product {
   description  String
   urlImage     String
   categories   Category[]
-  companies    Company[]
+  company      Company?   @relation(fields: [companyId], references: [company_id])
+  companyId    String
   carts        Cart[]
+  species      Species[]
 }
 
 model Company {
@@ -56,7 +65,8 @@ model Cart {
   updatedAt DateTime  @updatedAt
   createdAt DateTime  @default(now())
   products  Product[]
-  users     User[]
+  user      User?     @relation(fields: [userId], references: [username])
+  userId    String
 
 }
 
@@ -65,7 +75,6 @@ model Services {
   service_name String
   updatedAt    DateTime @updatedAt
   createdAt    DateTime @default(now())
-
 }
 
 model Vets {
@@ -75,5 +84,18 @@ model Vets {
   crmv      String
   updatedAt DateTime @updatedAt
   createdAt DateTime @default(now())
-  user      User[]
+  user      User?    @relation(fields: [userId], references: [username])
+  userId    String   @unique
+}
+
+model Donor {
+  donor_id      String @id @default(uuid())
+  donor_name    String @map("adoption_name")
+  donor_email   String
+  donor_image   String
+  donor_species String
+  donor_size    String
+  donor_tel     String
+  user          User?  @relation(fields: [userId], references: [username])
+  userId        String @unique
 }
