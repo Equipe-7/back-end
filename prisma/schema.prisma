@@ -44,7 +44,7 @@ model Product {
   urlImage     String
   categories   Category[]
   company      Company?   @relation(fields: [companyId], references: [company_id])
-  companyId    String
+  companyId    String     @default(uuid())
   carts        Cart[]
   species      Species[]
 }
@@ -66,7 +66,7 @@ model Cart {
   createdAt DateTime  @default(now())
   products  Product[]
   user      User?     @relation(fields: [userId], references: [username])
-  userId    String
+  userId    String    @default(uuid())
 
 }
 
@@ -86,7 +86,7 @@ model Vets {
   updatedAt DateTime @updatedAt
   createdAt DateTime @default(now())
   user      User?    @relation(fields: [userId], references: [username])
-  userId    String   @unique
+  userId    String   @default(uuid())@unique
 }
 
 model Donor {
@@ -98,5 +98,5 @@ model Donor {
   donor_size    String
   donor_tel     String
   user          User?  @relation(fields: [userId], references: [username])
-  userId        String @unique
+  userId        String @default(uuid())@unique
 }
