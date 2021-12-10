@@ -6,9 +6,10 @@ import { CategoriesModule } from './categories/categories.module';
 import { ServicesModule } from './services/services.module';
 import { VetsModule } from './vets/vets.module';
 import { DonorsModule } from './donors/donors.module';
+import { SpeciesModule } from './species/species.module';
 
 @Module({
-  imports: [UsersModule, ProductsModule, CompaniesModule, CategoriesModule, ServicesModule, VetsModule, DonorsModule],
+  imports: [UsersModule, ProductsModule, CompaniesModule, CategoriesModule, ServicesModule, VetsModule, SpeciesModule, DonorsModule],
   controllers: [],
   providers: [],
 })
