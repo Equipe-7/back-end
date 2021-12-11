@@ -44,7 +44,7 @@ model Product {
   urlImage     String
   categories   Category[]
   company      Company?   @relation(fields: [companyId], references: [company_id])
-  companyId    String
+  companyId    String?
   carts        Cart[]
   species      Species[]
 }
@@ -85,17 +85,17 @@ model Vets {
   updatedAt DateTime @updatedAt
   createdAt DateTime @default(now())
   user      User?    @relation(fields: [userId], references: [username])
-  userId    String   @unique
+  userId    String?
 }
 
 model Donor {
   donor_id      String @id @default(uuid())
-  donor_name    String @map("adoption_name")
+  donor_name    String 
   donor_email   String
   donor_image   String
   donor_species String
   donor_size    String
   donor_tel     String
   user          User?  @relation(fields: [userId], references: [username])
-  userId        String @unique
+  userId        String?
 }
