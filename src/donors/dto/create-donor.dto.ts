@@ -1,8 +1,7 @@
 import { IsEmail, IsString } from 'class-validator';
 
 export class CreateDonorDto {
-  @IsString()
-  donor_id: string;
+  
 
   @IsString()
   donor_name: string;
