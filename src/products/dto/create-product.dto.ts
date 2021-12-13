@@ -1,4 +1,5 @@
-import { IsString, IsNumber } from 'class-validator';
+import { Prisma } from '@prisma/client';
+import { IsString, IsNumber, IsOptional } from 'class-validator';
 
 export class CreateProductDto {
   @IsString()
