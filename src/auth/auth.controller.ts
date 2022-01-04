@@ -13,5 +13,10 @@ export class AuthController {
             throw new HttpException(result.message, HttpStatus.BAD_REQUEST);    
         }
         return result;  
+    };
+
+    @Post('login')  
+    public async login(@Body() loginUserDto: loginUserDto): Promise<LoginStatus> {
+        return await this.authService.login(loginUserDto);  
     }
 }
