@@ -4,6 +4,9 @@ import { ExtractJwt, Strategy } from 'passport-jwt';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
 import { AuthService } from './auth.service';
 
+export interface JwtPayload{
+    username: string;
+}
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) { 
     constructor(private readonly authService: AuthService) {
