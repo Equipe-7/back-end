@@ -8,7 +8,6 @@ datasource db {
 }
 
 model User {
-
   username  String   @id
   password  String
   email     String
@@ -16,8 +15,8 @@ model User {
   updatedAt DateTime @updatedAt
   createdAt DateTime @default(now())
   carts     Cart[]
-  vets      Vets?
   donor     Donor?
+  vets      Vets?
 }
 
 model Species {
@@ -42,10 +41,10 @@ model Product {
   price        Float
   description  String
   urlImage     String
-  categories   Category[]
-  company      Company?   @relation(fields: [companyId], references: [company_id])
   companyId    String?
+  company      Company?   @relation(fields: [companyId], references: [company_id])
   carts        Cart[]
+  categories   Category[]
   species      Species[]
 }
 
@@ -60,21 +59,20 @@ model Company {
 }
 
 model Cart {
-
   cart_id   String    @id @default(uuid())
   updatedAt DateTime  @updatedAt
   createdAt DateTime  @default(now())
-  products  Product[]
-  user      User?     @relation(fields: [userId], references: [username])
   userId    String
-
+  user      User      @relation(fields: [userId], references: [username])
+  products  Product[]
 }
 
 model Services {
-  service_id   String   @id @default(uuid())
   service_name String
   updatedAt    DateTime @updatedAt
   createdAt    DateTime @default(now())
+  price        String
+  service_id   Int      @id @default(autoincrement())
 }
 
 model Vets {
@@ -84,18 +82,18 @@ model Vets {
   crmv      String
   updatedAt DateTime @updatedAt
   createdAt DateTime @default(now())
+  userId    String?  @unique
   user      User?    @relation(fields: [userId], references: [username])
-  userId    String?
 }
 
 model Donor {
-  donor_id      String @id @default(uuid())
-  donor_name    String 
+  donor_id      String  @id @default(uuid())
+  donor_name    String
   donor_email   String
   donor_image   String
   donor_species String
   donor_size    String
   donor_tel     String
-  user          User?  @relation(fields: [userId], references: [username])
-  userId        String?
+  userId        String? @unique
+  user          User?   @relation(fields: [userId], references: [username])
 }
