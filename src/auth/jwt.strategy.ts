@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+/*import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
@@ -24,3 +24,4 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         return user;  
     }
 }
+*/

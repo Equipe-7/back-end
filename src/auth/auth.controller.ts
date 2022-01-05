@@ -1,4 +1,4 @@
-import { Body, Controller, HttpException, HttpStatus, Post } from '@nestjs/common';
+/*import { Body, Controller, HttpException, HttpStatus, Post } from '@nestjs/common';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
 import { AuthService, RegistrationStatus } from './auth.service';
 
@@ -20,3 +20,4 @@ export class AuthController {
         return await this.authService.login(loginUserDto);  
     }
 }
+*/

@@ -18,14 +18,14 @@ export class ServicesService {
     return service;
   }
 
-  async findOne(id: string) {
+  async findOne(id: number) {
     const service = await this.prisma.services.findUnique({
       where: { service_id: id }
     })
     return service;
   }
 
-  async update(id: string, data: UpdateServiceDto) {
+  async update(id: number, data: UpdateServiceDto) {
     const service = await this.prisma.services.update({
       where: { service_id: id}, 
       data,
@@ -33,7 +33,7 @@ export class ServicesService {
     return service;
   }
 
-  async remove(id: string) {
+  async remove(id: number) {
     const service = await this.prisma.services.delete({
       where: { service_id: id }
     })
