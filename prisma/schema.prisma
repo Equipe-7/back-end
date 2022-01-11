@@ -66,9 +66,10 @@ model Cart {
   createdAt DateTime  @default(now())
   quantity  Int
   products  Product[]
-  user      User?     @relation(fields: [userId], references: [username])
-  userId    String
+  total     Float
 
+  user   User?  @relation(fields: [userId], references: [username])
+  userId String
 }
 
 model Services {
