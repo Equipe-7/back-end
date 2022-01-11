@@ -8,9 +8,10 @@ import { VetsModule } from './vets/vets.module';
 import { DonorsModule } from './donors/donors.module';
 import { SpeciesModule } from './species/species.module';
 import { AuthModule } from './auth/auth.module';
+import { CartsModule } from './carts/carts.module';
 
 @Module({
-  imports: [UsersModule, ProductsModule, CompaniesModule, CategoriesModule, ServicesModule, VetsModule, SpeciesModule, DonorsModule, AuthModule],
+  imports: [UsersModule, ProductsModule, CompaniesModule, CategoriesModule, ServicesModule, VetsModule, SpeciesModule, DonorsModule, AuthModule, CartsModule],
   controllers: [],
   providers: [],
 })
